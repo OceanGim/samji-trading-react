@@ -151,7 +151,7 @@ export default function AboutPage() {
                       </p>
                       <p>
                         대한민국 베스트브랜드협회 선정<br />
-                        '2018 대한민국 베스트기업' 대상 수상<br />
+                        &apos;2018 대한민국 베스트기업&apos; 대상 수상<br />
                         우루과이 자숙곱창 수입
                       </p>
                     </div>

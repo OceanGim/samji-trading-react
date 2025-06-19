@@ -1,9 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { MapPin, Phone, Clock, Car, Bus, Train, Info } from 'lucide-react';
 import GoogleMap from '@/components/location/GoogleMap';
-import AddressCopy from '@/components/location/AddressCopy';
 import styles from './location.module.css';
 
 

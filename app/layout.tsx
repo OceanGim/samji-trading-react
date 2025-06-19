@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "./fonts.css";
 import Layout from "@/components/layout/Layout";
 
 export const viewport: Viewport = {
@@ -68,12 +69,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <head>
-        <link 
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" 
-          rel="stylesheet" 
-        />
-      </head>
       <body className="font-sans antialiased">
         <Layout>{children}</Layout>
       </body>

@@ -35,7 +35,7 @@ export default function TestImages() {
                   src={`/img/visual/slide${num}.jpg`} 
                   alt={`슬라이드 ${num}`}
                   className="w-full h-32 object-cover"
-                  onError={(e) => {
+                  onError={() => {
                     console.error(`이미지 로드 실패: slide${num}.jpg`);
                   }}
                   onLoad={() => {
