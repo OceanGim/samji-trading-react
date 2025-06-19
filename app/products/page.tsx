@@ -110,26 +110,6 @@ export default function ProductsPage() {
                         {product.description}
                       </p>
                       
-                      {/* Features Preview */}
-                      {product.features && product.features.length > 0 && (
-                        <div className="mb-4">
-                          <div className="flex flex-wrap gap-1">
-                            {product.features.slice(0, 2).map((feature, idx) => (
-                              <span 
-                                key={idx}
-                                className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded"
-                              >
-                                {feature}
-                              </span>
-                            ))}
-                            {product.features.length > 2 && (
-                              <span className="text-xs text-gray-400">
-                                +{product.features.length - 2}
-                              </span>
-                            )}
-                          </div>
-                        </div>
-                      )}
                       
                       {/* CTA */}
                       <div className="flex items-center justify-between">
