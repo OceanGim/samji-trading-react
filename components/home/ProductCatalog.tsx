@@ -24,14 +24,14 @@ const ProductCatalog: React.FC = () => {
         <div className="relative bg-gray-50 rounded-lg shadow-xl overflow-hidden border border-gray-200">
           {/* 이미지를 클릭하면 확대해서 볼 수 있도록 링크 추가 */}
           <a 
-            href={imageError ? placeholderImage : "/img/product-catalog.jpg"}
+            href={imageError ? placeholderImage : "/img/product-catalog.png"}
             target="_blank" 
             rel="noopener noreferrer"
             className="block cursor-zoom-in group"
           >
             <div className="relative overflow-hidden">
               <img
-                src={imageError ? placeholderImage : "/img/product-catalog.jpg"}
+                src={imageError ? placeholderImage : "/img/product-catalog.png"}
                 alt="삼지상사 제품 카탈로그 - 갈비탕, 도가니탕, 소고기탕 등"
                 className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
                 onError={() => setImageError(true)}
