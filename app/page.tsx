@@ -1,4 +1,5 @@
 import HeroSlider from '@/components/home/HeroSlider';
+import ProductCatalog from '@/components/home/ProductCatalog';
 import ProductGrid from '@/components/home/ProductGrid';
 
 export default function Home() {
@@ -6,6 +7,9 @@ export default function Home() {
     <div>
       {/* Hero Section */}
       <HeroSlider />
+
+      {/* Product Catalog Section */}
+      <ProductCatalog />
 
       {/* Product Section */}
       <ProductGrid />
