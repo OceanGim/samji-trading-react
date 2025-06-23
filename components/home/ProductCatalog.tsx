@@ -5,6 +5,7 @@ import Image from 'next/image';
 
 const ProductCatalog: React.FC = () => {
   const [imageError, setImageError] = useState(false);
+  const [imageLoading, setImageLoading] = useState(true);
 
   // 임시 플레이스홀더 이미지 (실제 이미지가 없을 때 표시)
   const placeholderImage = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI4MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iODAwIiBmaWxsPSIjZTVlN2ViIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzZiNzI4MCIg7KCc7ZKI7Lm07YOI66Gc6re4IOydtOuvuOyngCDspIDruYQ757CMPC90ZXh0Pjwvc3ZnPg==';
@@ -30,12 +31,37 @@ const ProductCatalog: React.FC = () => {
             className="block cursor-zoom-in group"
           >
             <div className="relative overflow-hidden">
-              <img
-                src={imageError ? placeholderImage : "/img/product-catalog.png"}
-                alt="삼지상사 제품 카탈로그 - 갈비탕, 도가니탕, 소고기탕 등"
-                className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
-                onError={() => setImageError(true)}
-              />
+              {/* 로딩 중일 때 표시 */}
+              {imageLoading && (
+                <div className="absolute inset-0 bg-gray-100 animate-pulse flex items-center justify-center">
+                  <div className="text-gray-500">이미지 로딩 중...</div>
+                </div>
+              )}
+              
+              {/* Next.js Image 컴포넌트 사용 */}
+              {!imageError ? (
+                <Image
+                  src="/img/product-catalog.png"
+                  alt="삼지상사 제품 카탈로그 - 갈비탕, 도가니탕, 소고기탕 등"
+                  width={1241}
+                  height={5148}
+                  className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
+                  onLoad={() => setImageLoading(false)}
+                  onError={() => {
+                    setImageError(true);
+                    setImageLoading(false);
+                  }}
+                  priority
+                  quality={90}
+                />
+              ) : (
+                <img
+                  src={placeholderImage}
+                  alt="제품 카탈로그 이미지 준비중"
+                  className="w-full h-auto"
+                />
+              )}
+              
               {/* 호버 시 확대 아이콘 표시 */}
               <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
                 <svg className="w-16 h-16 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
