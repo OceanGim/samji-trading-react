@@ -68,11 +68,12 @@ const Header: React.FC = () => {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white bg-primary px-5 py-[5px] rounded-[25px] text-base font-bold border border-primary transition-all duration-300 hover:bg-white hover:text-primary inline-flex items-center gap-1"
-                    style={{ backgroundColor: '#0066cc' }}
+                    className="text-gray-800 text-base font-medium hover:text-primary transition-colors duration-300 inline-flex items-center gap-1"
                   >
                     {item.title}
-                    <span className="text-sm">↗</span>
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
                   </a>
                 ) : (
                   <Link
@@ -126,10 +127,12 @@ const Header: React.FC = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="block py-4 text-lg font-semibold text-gray-800 hover:text-primary transition-colors duration-300"
+                      className="flex items-center py-4 text-lg font-semibold text-gray-800 hover:text-primary transition-colors duration-300"
                     >
                       {item.title}
-                      <span className="ml-1 text-sm">↗</span>
+                      <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
                     </a>
                   ) : (
                     <Link
