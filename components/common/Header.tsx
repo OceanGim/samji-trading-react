@@ -46,7 +46,7 @@ const Header: React.FC = () => {
         isScrolled ? 'border-b border-gray-300' : ''
       }`}
     >
-      <div className="w-full max-w-[1200px] mx-auto h-full px-4 lg:px-0">
+      <div className="w-full max-w-[1200px] mx-auto h-full px-4 lg:px-5">
         <nav className="flex items-center justify-between h-full">
           {/* Logo */}
           <h1>

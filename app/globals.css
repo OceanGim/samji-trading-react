@@ -10,11 +10,40 @@
   padding: 0;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: #333;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Force center alignment for all containers */
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Ensure max-width containers are centered */
+[class*="max-w-"] {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Force center alignment for common layout containers */
+header > div,
+main > div,
+main > section,
+footer > div,
+.max-w-\[1200px\] {
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .sr-only {
