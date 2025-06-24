@@ -25,8 +25,8 @@ export default function Home() {
               삼지상사총판
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              삼지상사총판은 최고 품질의 축산물 가공품을 수입하여 
-              전국의 식당과 업체에 공급하고 있습니다. 
+              삼지상사총판은 최고 품질의 축산물 가공품을 수입하여<br/>
+              전국의 식당과 업체에 공급하고 있습니다.<br/>
               신뢰할 수 있는 파트너로서 항상 최선을 다하겠습니다.
             </p>
           </div>

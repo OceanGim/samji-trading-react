@@ -222,7 +222,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
 const ProductCatalogWeb: React.FC = () => {
   return (
-    <section className="py-12 md:py-20 bg-gray-100">
+    <section className="py-12 md:py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Products Grid - 카드 간 좁은 간격, 그리드 자체에 추가 패딩 */}
         <div className="max-w-6xl mx-auto">
@@ -233,9 +233,17 @@ const ProductCatalogWeb: React.FC = () => {
           </div>
         </div>
 
+        {/* Spacing */}
+        <div style={{height: '60px'}}></div>
+
         {/* Jinchobang Banner */}
-        <div className="max-w-6xl mx-auto mt-16">
-          <div className="bg-[#6B1F2A] text-white rounded-lg p-10 text-center">
+        <div className="max-w-6xl mx-auto">
+          <a 
+            href="http://jinchobang.co.kr/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="block bg-[#6B1F2A] text-white rounded-lg p-10 text-center hover:bg-[#5A1A24] transition-colors duration-300 cursor-pointer"
+          >
           <div className="flex items-center justify-center gap-4 mb-4">
             <h2 className="text-4xl font-bold">진초방</h2>
             <span className="text-2xl">흑염소</span>
@@ -247,8 +255,11 @@ const ProductCatalogWeb: React.FC = () => {
           <p className="text-lg">
             식당/케이터링/급식업체/업종변경 등
           </p>
-          </div>
+          </a>
         </div>
+
+        {/* Spacing */}
+        <div style={{height: '30px'}}></div>
 
         {/* Price Table */}
         <div className="max-w-6xl mx-auto">
@@ -259,10 +270,12 @@ const ProductCatalogWeb: React.FC = () => {
         <div className="max-w-6xl mx-auto mt-12">
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
           <div className="relative h-48 bg-green-800">
+            <img 
+              src="/img/jinchobang-goats.jpg" 
+              alt="진초방 흑염소" 
+              className="w-full h-full object-cover"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <div className="absolute inset-0 flex items-center justify-center text-white/30 text-2xl">
-              흑염소 이미지
-            </div>
           </div>
           <div className="bg-gray-800 text-white p-6 flex items-center justify-between">
             <div className="flex items-center gap-4">
