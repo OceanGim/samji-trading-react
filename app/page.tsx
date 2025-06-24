@@ -1,6 +1,5 @@
 import HeroSlider from '@/components/home/HeroSlider';
-import ProductCatalog from '@/components/home/ProductCatalog';
-import ProductGrid from '@/components/home/ProductGrid';
+import ProductCatalogWeb from '@/components/home/ProductCatalogWeb';
 
 export default function Home() {
   return (
@@ -8,11 +7,15 @@ export default function Home() {
       {/* Hero Section */}
       <HeroSlider />
 
-      {/* Product Catalog Section */}
-      <ProductCatalog />
+      {/* Section Title */}
+      <div style={{paddingTop: '50px', paddingBottom: '30px'}}>
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800">
+          제품소개
+        </h2>
+      </div>
 
-      {/* Product Section */}
-      <ProductGrid />
+      {/* Product Catalog Section - Web Version */}
+      <ProductCatalogWeb />
 
       {/* Company Info Section */}
       <section className="py-12 md:py-16 bg-white">

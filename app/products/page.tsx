@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { products } from '@/data/products';
+import { useSearchParams } from 'next/navigation';
 
 // 실제 제품 카테고리만 표시
 const categories = [
@@ -16,11 +17,23 @@ const categories = [
 ];
 
 export default function ProductsPage() {
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const searchParams = useSearchParams();
+  const categoryFromUrl = searchParams.get('category') || 'all';
+  const [selectedCategory, setSelectedCategory] = useState(categoryFromUrl);
+  const [openCategory, setOpenCategory] = useState<string | null>(null);
+
+  useEffect(() => {
+    setSelectedCategory(categoryFromUrl);
+  }, [categoryFromUrl]);
 
   const filteredProducts = selectedCategory === 'all'
     ? products
     : products.filter(product => product.category === selectedCategory);
+
+  const getCategoryProducts = (categoryId: string) => {
+    if (categoryId === 'all' || categoryId === 'features') return [];
+    return products.filter(p => p.category === categoryId);
+  };
 
   return (
     <div className="min-h-screen">
@@ -29,7 +42,12 @@ export default function ProductsPage() {
         <div className="max-w-[1400px] mx-auto">
           <ul className="flex">
             {categories.map((category) => (
-              <li key={category.id} className="flex-1 relative">
+              <li 
+                key={category.id} 
+                className="flex-1 relative group"
+                onMouseEnter={() => category.id !== 'features' && category.id !== 'all' && setOpenCategory(category.id)}
+                onMouseLeave={() => setOpenCategory(null)}
+              >
                 {category.isLink ? (
                   <Link
                     href="/products/features"
@@ -55,6 +73,46 @@ export default function ProductsPage() {
                     )}
                   </button>
                 )}
+
+                {/* Dropdown for category products */}
+                <div 
+                  className={`absolute top-full left-0 w-full bg-gray-900/95 backdrop-blur-sm shadow-2xl z-50 overflow-hidden transition-all duration-300 ${
+                    openCategory === category.id && category.id !== 'all' && category.id !== 'features' 
+                      ? 'max-h-96 opacity-100' 
+                      : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <ul className="py-2">
+                    {getCategoryProducts(category.id).map((product, index) => (
+                      <li 
+                        key={product.id}
+                        style={{
+                          animation: openCategory === category.id ? `slideIn 0.3s ease-out ${index * 0.05}s both` : 'none'
+                        }}
+                      >
+                        <Link
+                          href={`/products/${product.id}`}
+                          className={`block px-6 py-3 text-sm text-white hover:bg-primary/20 hover:pl-8 transition-all duration-200`}
+                        >
+                          {product.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <style jsx>{`
+                  @keyframes slideIn {
+                    from {
+                      opacity: 0;
+                      transform: translateY(-10px);
+                    }
+                    to {
+                      opacity: 1;
+                      transform: translateY(0);
+                    }
+                  }
+                `}</style>
               </li>
             ))}
           </ul>

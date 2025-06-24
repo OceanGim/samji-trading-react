@@ -4,15 +4,38 @@ export interface Product {
   description: string;
   image: string;
   category: string;
+  features?: string[];
+  origin?: string;
+  specification?: string;
+  packingUnit?: string;
+  storageMethod?: string;
+  shelfLife?: string;
+  cookingInstructions?: string[];
 }
 
 export const products: Product[] = [
   {
     id: 1,
     name: '갈비탕',
-    description: '엄선된 갈비를 자숙 처리하여 만든 간편하게 즐기는 프리미엄 갈비탕',
+    description: '엄선된 프리미엄 갈비를 사용하여 진하고 깊은 맛을 자랑하는 삼지상사의 대표 제품입니다.',
     image: '/img/slide/img1.jpg',
-    category: '탕류'
+    category: '탕류',
+    features: [
+      '엄선된 프리미엄 갈비 사용',
+      '24시간 이상 우려낸 진한 국물',
+      'HACCP 인증 시설에서 위생적으로 생산',
+      '간편한 조리로 전문점의 맛 재현'
+    ],
+    origin: '호주산 / 미국산 / 국내산',
+    specification: '800g, 1kg, 1.5kg',
+    packingUnit: '10팩/박스',
+    storageMethod: '냉동보관 (-18℃ 이하)',
+    shelfLife: '제조일로부터 12개월',
+    cookingInstructions: [
+      '냉동 상태의 제품을 냉장실에서 해동하거나 찬물에 담가 해동합니다.',
+      '끓는 물에 제품을 넣고 중불에서 10-15분간 데웁니다.',
+      '기호에 맞게 파, 마늘 등의 양념을 추가하여 드시면 더욱 맛있습니다.'
+    ]
   },
   {
     id: 2,

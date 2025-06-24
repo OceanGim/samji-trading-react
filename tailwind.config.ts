@@ -67,6 +67,15 @@ const config: Config = {
           900: '#212529',
         },
       },
+      animation: {
+        shine: 'shine 3s infinite',
+      },
+      keyframes: {
+        shine: {
+          '0%': { transform: 'translateX(-100%) skewX(-12deg)' },
+          '100%': { transform: 'translateX(200%) skewX(-12deg)' },
+        },
+      },
       fontFamily: {
         sans: ['Pretendard', 'sans-serif'],
       },
