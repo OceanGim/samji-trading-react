@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 interface Product {
   id: number;
@@ -136,9 +137,18 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/products/${product.id}`);
+  };
+
   return (
     <div className="w-full">
-      <div className="bg-white rounded-lg sm:rounded-xl lg:rounded-2xl shadow-md sm:shadow-lg lg:shadow-[0_4px_16px_rgba(0,0,0,0.08)] overflow-hidden">
+      <div 
+        className="bg-white rounded-lg sm:rounded-xl lg:rounded-2xl shadow-md sm:shadow-lg lg:shadow-[0_4px_16px_rgba(0,0,0,0.08)] overflow-hidden cursor-pointer transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
+        onClick={handleClick}
+      >
       {/* Product Title - 반응형 패딩의 빨간색 헤더 with gradient */}
       <div className="bg-gradient-to-r from-[#C41E3A] via-[#D91E36] to-[#EF4444] relative overflow-hidden">
         {/* Shine effect */}

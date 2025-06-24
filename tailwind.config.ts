@@ -95,6 +95,14 @@ const config: Config = {
         '46': '11.5rem',
         '50': '12.5rem',
       },
+      animation: {
+        shine: 'shine 3s infinite',
+      },
+      keyframes: {
+        shine: {
+          '100%': { transform: 'translateX(200%)' },
+        },
+      },
     },
   },
   plugins: [],
