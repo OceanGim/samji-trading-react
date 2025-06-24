@@ -18,7 +18,7 @@ export default function Home() {
       <ProductCatalogWeb />
 
       {/* Company Info Section */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-12 md:py-16 bg-white" style={{marginBottom: '40px'}}>
         <div className="max-w-[1200px] mx-auto px-4">
           <div className="text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-gray-800">

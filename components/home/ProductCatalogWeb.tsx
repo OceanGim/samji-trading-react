@@ -265,28 +265,9 @@ const ProductCatalogWeb: React.FC = () => {
           <JinchobangPriceTable />
         </div>
 
-        {/* Footer */}
-        <div className="max-w-6xl mx-auto mt-12">
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-          <div className="relative h-48 bg-green-800">
-            <img 
-              src="/img/jinchobang-goats.jpg" 
-              alt="진초방 흑염소" 
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-          </div>
-          <div className="bg-gray-800 text-white p-6 flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <span className="text-xl font-bold">SAMJI TRADING</span>
-              <span className="text-lg">삼지상사 총판</span>
-            </div>
-            <div className="bg-red-600 px-6 py-3 rounded-lg">
-              <p className="text-2xl font-bold">문의 010-9999-3436</p>
-            </div>
-          </div>
-          </div>
-        </div>
+        {/* Spacing */}
+        <div style={{height: '80px'}}></div>
+
       </div>
     </section>
   );
@@ -313,39 +294,39 @@ const JinchobangPriceTable: React.FC = () => {
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-[#6B1F2A] text-white">
-              <th rowSpan={2} className="px-4 py-3 border-r border-white/20">NO.</th>
-              <th rowSpan={2} className="px-4 py-3 border-r border-white/20">품명</th>
-              <th colSpan={3} className="px-4 py-2 border-r border-white/20">규격</th>
-              <th rowSpan={2} className="px-4 py-3 border-r border-white/20">보관<br/>방법</th>
-              <th colSpan={2} className="px-4 py-2">납품가</th>
+              <th rowSpan={2} className="px-4 py-6 border-r border-white/20">NO.</th>
+              <th rowSpan={2} className="px-4 py-6 border-r border-white/20">품명</th>
+              <th colSpan={3} className="px-4 py-4 border-r border-white/20">규격</th>
+              <th rowSpan={2} className="px-4 py-6 border-r border-white/20">보관<br/>방법</th>
+              <th colSpan={2} className="px-4 py-4">납품가</th>
             </tr>
             <tr className="bg-[#6B1F2A] text-white">
-              <th className="px-2 py-2 border-r border-white/20 text-xs">중량(kg)</th>
-              <th className="px-2 py-2 border-r border-white/20 text-xs">입수(ea)</th>
-              <th className="px-2 py-2 border-r border-white/20 text-xs">박스(kg)</th>
-              <th className="px-2 py-2 border-r border-white/20 text-xs">박스단가</th>
-              <th className="px-2 py-2 text-xs">포장단위<br/>단가</th>
+              <th className="px-2 py-4 border-r border-white/20 text-xs">중량(kg)</th>
+              <th className="px-2 py-4 border-r border-white/20 text-xs">입수(ea)</th>
+              <th className="px-2 py-4 border-r border-white/20 text-xs">박스(kg)</th>
+              <th className="px-2 py-4 border-r border-white/20 text-xs">박스단가</th>
+              <th className="px-2 py-4 text-xs">포장단위<br/>단가</th>
             </tr>
           </thead>
           <tbody>
             {priceData.map((item, index) => (
-              <tr key={item.no} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
-                <td className="px-4 py-2 text-center border-r">{item.no}</td>
-                <td className="px-4 py-2 border-r">{item.name}</td>
-                <td className="px-2 py-2 text-center border-r">{item.specs.weight}</td>
-                <td className="px-2 py-2 text-center border-r">{item.specs.count}</td>
-                <td className="px-2 py-2 text-center border-r">{item.specs.box}</td>
-                <td className="px-4 py-2 text-center border-r">
-                  <span className={`inline-block px-2 py-1 rounded text-xs font-medium ${
+              <tr key={item.no} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} style={{height: '64px'}}>
+                <td className="text-center border-r whitespace-nowrap" style={{padding: '25px 8px', fontSize: 'clamp(10px, 2vw, 14px)'}}>{item.no}</td>
+                <td className="border-r whitespace-nowrap" style={{padding: '25px 8px', fontSize: 'clamp(10px, 2vw, 14px)'}}>{item.name}</td>
+                <td className="text-center border-r whitespace-nowrap" style={{padding: '25px 4px', fontSize: 'clamp(9px, 1.8vw, 12px)'}}>{item.specs.weight}</td>
+                <td className="text-center border-r whitespace-nowrap" style={{padding: '25px 4px', fontSize: 'clamp(9px, 1.8vw, 12px)'}}>{item.specs.count}</td>
+                <td className="text-center border-r whitespace-nowrap" style={{padding: '25px 4px', fontSize: 'clamp(9px, 1.8vw, 12px)'}}>{item.specs.box}</td>
+                <td className="text-center border-r whitespace-nowrap" style={{padding: '25px 8px', fontSize: 'clamp(9px, 1.8vw, 12px)'}}>
+                  <span className={`inline-block px-1 py-0.5 rounded text-xs font-medium ${
                     item.storage === '냉동' ? 'bg-blue-100 text-blue-800' :
                     item.storage === '냉장' ? 'bg-green-100 text-green-800' :
                     'bg-gray-100 text-gray-800'
-                  }`}>
+                  }`} style={{fontSize: 'clamp(8px, 1.5vw, 11px)'}}>
                     {item.storage}
                   </span>
                 </td>
-                <td className="px-4 py-2 text-right border-r">{item.boxPrice}</td>
-                <td className="px-4 py-2 text-right">{item.unitPrice}</td>
+                <td className="text-right border-r whitespace-nowrap" style={{padding: '25px 8px', fontSize: 'clamp(9px, 1.8vw, 12px)'}}>{item.boxPrice}</td>
+                <td className="text-right whitespace-nowrap" style={{padding: '25px 8px', fontSize: 'clamp(9px, 1.8vw, 12px)'}}>{item.unitPrice}</td>
               </tr>
             ))}
           </tbody>
