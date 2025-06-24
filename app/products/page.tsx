@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { products } from '@/data/products';
@@ -16,7 +16,7 @@ const categories = [
   { id: 'features', name: '제품특장점', count: 0, isLink: true },
 ];
 
-export default function ProductsPage() {
+function ProductsContent() {
   const searchParams = useSearchParams();
   const categoryFromUrl = searchParams.get('category') || 'all';
   const [selectedCategory, setSelectedCategory] = useState(categoryFromUrl);
@@ -210,5 +210,13 @@ export default function ProductsPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">로딩 중...</div>}>
+      <ProductsContent />
+    </Suspense>
   );
 }
