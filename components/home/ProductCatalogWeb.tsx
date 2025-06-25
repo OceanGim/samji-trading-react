@@ -275,7 +275,7 @@ const ProductCatalogWeb: React.FC = () => {
 
 const JinchobangPriceTable: React.FC = () => {
   const priceData = [
-    { no: 1, name: '흑염소가공육(삼코기)', specs: { weight: '2', count: '4', box: '8' }, storage: '상온', boxPrice: '250,800', unitPrice: '62,700' },
+    { no: 1, name: '흑염소가공육(살코기)', specs: { weight: '2', count: '4', box: '8' }, storage: '상온', boxPrice: '250,800', unitPrice: '62,700' },
     { no: 2, name: '흑염소가공육(갈비)', specs: { weight: '2', count: '4', box: '8' }, storage: '상온', boxPrice: '250,800', unitPrice: '62,700' },
     { no: 3, name: '흑염소가공육(뱃살)', specs: { weight: '2', count: '4', box: '8' }, storage: '상온', boxPrice: '250,800', unitPrice: '62,700' },
     { no: 4, name: '흑염소진액', specs: { weight: '70ml', count: '200', box: '14' }, storage: '상온', boxPrice: '220,000', unitPrice: '1,100' },
@@ -311,22 +311,22 @@ const JinchobangPriceTable: React.FC = () => {
           <tbody>
             {priceData.map((item, index) => (
               <tr key={item.no} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} style={{height: '64px'}}>
-                <td className="text-center border-r whitespace-nowrap" style={{padding: '25px 8px', fontSize: 'clamp(10px, 2vw, 14px)'}}>{item.no}</td>
-                <td className="border-r whitespace-nowrap" style={{padding: '25px 8px', fontSize: 'clamp(10px, 2vw, 14px)'}}>{item.name}</td>
-                <td className="text-center border-r whitespace-nowrap" style={{padding: '25px 4px', fontSize: 'clamp(9px, 1.8vw, 12px)'}}>{item.specs.weight}</td>
-                <td className="text-center border-r whitespace-nowrap" style={{padding: '25px 4px', fontSize: 'clamp(9px, 1.8vw, 12px)'}}>{item.specs.count}</td>
-                <td className="text-center border-r whitespace-nowrap" style={{padding: '25px 4px', fontSize: 'clamp(9px, 1.8vw, 12px)'}}>{item.specs.box}</td>
-                <td className="text-center border-r whitespace-nowrap" style={{padding: '25px 8px', fontSize: 'clamp(9px, 1.8vw, 12px)'}}>
+                <td className="text-center border-r whitespace-nowrap" style={{padding: '25px 8px', fontSize: '14px'}}>{item.no}</td>
+                <td className="border-r whitespace-nowrap" style={{padding: '25px 8px', fontSize: '14px'}}>{item.name}</td>
+                <td className="text-center border-r whitespace-nowrap" style={{padding: '25px 4px', fontSize: '12px'}}>{item.specs.weight}</td>
+                <td className="text-center border-r whitespace-nowrap" style={{padding: '25px 4px', fontSize: '12px'}}>{item.specs.count}</td>
+                <td className="text-center border-r whitespace-nowrap" style={{padding: '25px 4px', fontSize: '12px'}}>{item.specs.box}</td>
+                <td className="text-center border-r whitespace-nowrap" style={{padding: '25px 8px', fontSize: '12px'}}>
                   <span className={`inline-block px-1 py-0.5 rounded text-xs font-medium ${
                     item.storage === '냉동' ? 'bg-blue-100 text-blue-800' :
                     item.storage === '냉장' ? 'bg-green-100 text-green-800' :
                     'bg-gray-100 text-gray-800'
-                  }`} style={{fontSize: 'clamp(8px, 1.5vw, 11px)'}}>
+                  }`}>
                     {item.storage}
                   </span>
                 </td>
-                <td className="text-right border-r whitespace-nowrap" style={{padding: '25px 8px', fontSize: 'clamp(9px, 1.8vw, 12px)'}}>{item.boxPrice}</td>
-                <td className="text-right whitespace-nowrap" style={{padding: '25px 8px', fontSize: 'clamp(9px, 1.8vw, 12px)'}}>{item.unitPrice}</td>
+                <td className="text-right border-r whitespace-nowrap" style={{padding: '25px 8px', fontSize: '12px'}}>{item.boxPrice}</td>
+                <td className="text-right whitespace-nowrap" style={{padding: '25px 8px', fontSize: '12px'}}>{item.unitPrice}</td>
               </tr>
             ))}
           </tbody>

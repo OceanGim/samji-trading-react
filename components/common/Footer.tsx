@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
           <span className="hidden sm:inline mx-2">|</span>
           <span className="block sm:inline">주소 : 의정부시 고산동 996-3 고산한강 듀클래스 B동 923호</span>
           <br />
-          <span className="block sm:inline">대표자명 : 박종대</span>
+          <span className="block sm:inline">대표자명 : 박휘순</span>
           <span className="hidden sm:inline mx-2">|</span>
           <span className="block sm:inline">문의전화 : 010-9999-3436</span>
         </p>
