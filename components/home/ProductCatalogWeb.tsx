@@ -241,19 +241,13 @@ const ProductCatalogWeb: React.FC = () => {
             href="http://jinchobang.co.kr/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="block bg-[#6B1F2A] text-white rounded-lg p-10 text-center hover:bg-[#5A1A24] transition-colors duration-300 cursor-pointer"
+            className="block rounded-lg overflow-hidden hover:opacity-95 transition-opacity duration-300"
           >
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <h2 className="text-4xl font-bold">진초방</h2>
-            <span className="text-2xl">흑염소</span>
-          </div>
-          <h3 className="text-2xl font-bold mb-4">
-            흑염소 전문유통(몽골산)<br />
-            도소매 납품 및 대량구매문의
-          </h3>
-          <p className="text-lg">
-            식당/케이터링/급식업체/업종변경 등
-          </p>
+            <img 
+              src="/img/jinchobang-banner.png" 
+              alt="진초방 흑염소 - 흑염소 전문유통(몽골산) 도소매 납품 및 대량구매문의" 
+              className="w-full h-auto"
+            />
           </a>
         </div>
 
@@ -274,64 +268,13 @@ const ProductCatalogWeb: React.FC = () => {
 };
 
 const JinchobangPriceTable: React.FC = () => {
-  const priceData = [
-    { no: 1, name: '흑염소가공육(살코기)', specs: { weight: '2', count: '4', box: '8' }, storage: '상온', boxPrice: '250,800', unitPrice: '62,700' },
-    { no: 2, name: '흑염소가공육(갈비)', specs: { weight: '2', count: '4', box: '8' }, storage: '상온', boxPrice: '250,800', unitPrice: '62,700' },
-    { no: 3, name: '흑염소가공육(뱃살)', specs: { weight: '2', count: '4', box: '8' }, storage: '상온', boxPrice: '250,800', unitPrice: '62,700' },
-    { no: 4, name: '흑염소진액', specs: { weight: '70ml', count: '200', box: '14' }, storage: '상온', boxPrice: '220,000', unitPrice: '1,100' },
-    { no: 5, name: '흑염소진액 박스(30입)', specs: { weight: '', count: '50', box: '' }, storage: '상온', boxPrice: '125,000', unitPrice: '2,500' },
-    { no: 6, name: '흑염소탕소스', specs: { weight: '5', count: '2', box: '10' }, storage: '냉동', boxPrice: '100,000', unitPrice: '50,000' },
-    { no: 7, name: '들깨가루', specs: { weight: '1', count: '10', box: '10' }, storage: '상온', boxPrice: '80,000', unitPrice: '8,000' },
-    { no: 8, name: '들깨가루(소포장)', specs: { weight: '0.01', count: '250', box: '2.5' }, storage: '상온', boxPrice: '90,000', unitPrice: '360' },
-    { no: 9, name: '고사리', specs: { weight: '2', count: '5', box: '10' }, storage: '냉장', boxPrice: '28,000', unitPrice: '5,600' },
-    { no: 10, name: '들기름', specs: { weight: '1.8', count: '8', box: '14.4' }, storage: '상온', boxPrice: '200,000', unitPrice: '25,000' },
-    { no: 11, name: '들향기름(5:5)', specs: { weight: '1.8', count: '8', box: '14.4' }, storage: '상온', boxPrice: '136,000', unitPrice: '17,000' }
-  ];
-
   return (
     <div className="mt-8 bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="overflow-x-auto">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="bg-[#6B1F2A] text-white">
-              <th rowSpan={2} className="px-4 py-6 border-r border-white/20">NO.</th>
-              <th rowSpan={2} className="px-4 py-6 border-r border-white/20">품명</th>
-              <th colSpan={3} className="px-4 py-4 border-r border-white/20">규격</th>
-              <th rowSpan={2} className="px-4 py-6 border-r border-white/20">보관<br/>방법</th>
-              <th colSpan={2} className="px-4 py-4">납품가</th>
-            </tr>
-            <tr className="bg-[#6B1F2A] text-white">
-              <th className="px-2 py-4 border-r border-white/20 text-xs">중량(kg)</th>
-              <th className="px-2 py-4 border-r border-white/20 text-xs">입수(ea)</th>
-              <th className="px-2 py-4 border-r border-white/20 text-xs">박스(kg)</th>
-              <th className="px-2 py-4 border-r border-white/20 text-xs">박스단가</th>
-              <th className="px-2 py-4 text-xs">포장단위<br/>단가</th>
-            </tr>
-          </thead>
-          <tbody>
-            {priceData.map((item, index) => (
-              <tr key={item.no} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} style={{height: '64px'}}>
-                <td className="text-center border-r whitespace-nowrap" style={{padding: '25px 8px', fontSize: '14px'}}>{item.no}</td>
-                <td className="border-r whitespace-nowrap" style={{padding: '25px 8px', fontSize: '14px'}}>{item.name}</td>
-                <td className="text-center border-r whitespace-nowrap" style={{padding: '25px 4px', fontSize: '12px'}}>{item.specs.weight}</td>
-                <td className="text-center border-r whitespace-nowrap" style={{padding: '25px 4px', fontSize: '12px'}}>{item.specs.count}</td>
-                <td className="text-center border-r whitespace-nowrap" style={{padding: '25px 4px', fontSize: '12px'}}>{item.specs.box}</td>
-                <td className="text-center border-r whitespace-nowrap" style={{padding: '25px 8px', fontSize: '12px'}}>
-                  <span className={`inline-block px-1 py-0.5 rounded text-xs font-medium ${
-                    item.storage === '냉동' ? 'bg-blue-100 text-blue-800' :
-                    item.storage === '냉장' ? 'bg-green-100 text-green-800' :
-                    'bg-gray-100 text-gray-800'
-                  }`}>
-                    {item.storage}
-                  </span>
-                </td>
-                <td className="text-right border-r whitespace-nowrap" style={{padding: '25px 8px', fontSize: '12px'}}>{item.boxPrice}</td>
-                <td className="text-right whitespace-nowrap" style={{padding: '25px 8px', fontSize: '12px'}}>{item.unitPrice}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <img 
+        src="/img/jinchobang-price-table-new.png" 
+        alt="진초방 가격표" 
+        className="w-full h-auto"
+      />
     </div>
   );
 };
